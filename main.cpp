@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <set>
+#include <map>
 #include <algorithm>
 
 bool comprobar(const std::string& a, const std::string sub[3], int i, int d) {
@@ -14,41 +15,102 @@ bool comprobar(const std::string& a, const std::string sub[3], int i, int d) {
         (suba == sub[2] + sub[1]);
 }
 
-std::set<int> dyv(const std::string& A, const std::string sub[3], int i, int d) {
-    // caso base
-    if ((d - i + 1) < 6) {
-        return std::set<int>{};
-    } else if ((d - i + 1) < A.length()) {
-        std::set<int> soluciones;
-        for (int h = i; h + 5 <= d; h++) {
-            if (comprobar(A, sub, h, h + 5))
-                soluciones.insert(h);
-        }
-        return soluciones;
+bool comprobar_dyn(const std::string& a, const std::string sub[3], int i, int d) {
+    static std::map<std::string, bool> cache;
+
+    std::string suba = a.substr(i, d - i + 1);
+
+    std::map<std::string, bool>::const_iterator it = cache.end();
+    if ((it = cache.find(suba)) != cache.end()) {
+        return it->second;
+    } else {
+        bool sol = 
+            (suba == sub[0] + sub[1]) ||
+            (suba == sub[0] + sub[2]) ||
+            (suba == sub[1] + sub[0]) ||
+            (suba == sub[1] + sub[2]) ||
+            (suba == sub[2] + sub[0]) ||
+            (suba == sub[2] + sub[1]);
+        
+        cache.insert({suba, sol});
+
+        return sol;
     }
-    // dividir
-    std::set<int> soli = dyv(A, sub, 0, A.length()/2 - 1);
-    std::set<int> sold = dyv(A, sub, A.length()/2, A.length()-1);
-    std::set<int> solc = dyv(A, sub, A.length()/2 - 5, A.length()/2 + 4);
-    // combinar
-    std::set<int> sol;
-    sol.insert(soli.begin(), soli.end());
-    sol.insert(sold.begin(), sold.end());
-    sol.insert(solc.begin(), solc.end());
-   
-    return sol;
 }
 
-int main() {
+void dyv(const std::string& A, const std::string sub[3], int i, int d,
+    std::set<int>& sol)
+{
+    int len = (d - i + 1);
+    // caso base
+    if (len < 6) {
+
+    } else if (len == 6) {
+         if (comprobar(A, sub, i, d))
+            sol.insert(i);
+    } else {
+        // dividir
+        dyv(A, sub, i, i + ((len/2) - 1), sol); // mitad izq
+        dyv(A, sub, i + (len/2), d, sol); // mitad dcha
+        // combinar 
+        for (int h = std::max(i + ((len/2) - 5), 0); h + 5 <= std::min(i + ((len/2) + 4), d); h++)
+            if (comprobar(A, sub, h, h + 5))
+                sol.insert(h);
+    }
+}
+
+void dyv_dyn(const std::string& A, const std::string sub[3], int i, int d,
+    std::set<int>& sol)
+{
+    int len = (d - i + 1);
+    // caso base
+    if (len < 6) {
+
+    } else if (len == 6) {
+         if (comprobar_dyn(A, sub, i, d))
+            sol.insert(i);
+    } else {
+        // dividir
+        dyv(A, sub, i, i + ((len/2) - 1), sol); // mitad izq
+        dyv(A, sub, i + (len/2), d, sol); // mitad dcha
+        // combinar 
+        for (int h = std::max(i + ((len/2) - 5), 0); h + 5 <= std::min(i + ((len/2) + 4), d); h++)
+            if (comprobar_dyn(A, sub, h, h + 5))
+                sol.insert(h);
+    }
+}
+
+
+int main(int argc, char **argv) {
     // "abbcabcddacbdcaaac"
     std::string A;
     std::cin >> A;
 
     std::string sub[3] = {"acb", "aac", "dca"};
     
-    const std::set<int>& sol = dyv(A, sub, 0, A.length() - 1);
+    std::set<int> sol;
 
-    printf("sol: %d {", sol.size());
+    if (argc == 2) {
+        std::string arg(argv[1]);
+        if (arg == "-dyv")
+            dyv(A, sub, 0, A.length() - 1, sol);
+        else if (arg == "-normal") {
+            for (size_t h = 0; h + 5 <= A.length(); h++)
+                if (comprobar(A, sub, h, h + 5))
+                    sol.insert(h);
+        } else if (arg == "-dyvdyn") {
+            dyv_dyn(A, sub, 0, A.length() - 1, sol);
+        } else if (arg == "-dyn") {
+            for (size_t h = 0; h + 5 <= A.length(); h++)
+                if (comprobar_dyn(A, sub, h, h + 5))
+                    sol.insert(h);
+        } else
+            return 1;
+
+    } else 
+        dyv(A, sub, 0, A.length() - 1, sol);
+
+    printf("sol: %ld {", sol.size());
     for (int s : sol) 
         printf("%d, ", s + 1);
     printf("}\n");
