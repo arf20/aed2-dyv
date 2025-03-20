@@ -1,5 +1,5 @@
 TARGET := proyecto
-GENERATOR := generator
+GENERATOR := generador
 
 CXX_FLAGS := -g -O0 -Wall -pedantic
 
