@@ -121,6 +121,14 @@ main() {
 3. Implementación
 
 4. Validación
+Haciendo uso del generador de cadenas para comprobar las salidas usando el algoritmo dyv y el método de resolución directa, 
+hemos podido comprobar que todas las salidas coinciden. 
+//Caso proporcionado en el documento
+"abbcabcddacbdcaaac"
+//Caso sin coincidencias
+"babababababababababababababababababa"
+//Caso cadena larga
+"dbdcbdbccbddbadaacccacdaccddddacaaacdcabdaaaadbabdcccccaacddbaccacadaaaaaaabdbbabacdcbdcddbaddcdcccc"
 
 5. Estudio experimental
 
