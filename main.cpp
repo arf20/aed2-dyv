@@ -110,9 +110,8 @@ int main(int argc, char **argv) {
     } else 
         dyv(A, sub, 0, A.length() - 1, sol);
 
-    printf("sol: %ld {", sol.size());
     for (int s : sol) 
         printf("%d, ", s + 1);
-    printf("}\n");
+    printf("\nsol: %ld\n", sol.size());
 }
 
