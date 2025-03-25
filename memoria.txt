@@ -45,18 +45,78 @@ MEMORIA AED2                                                                   1
 MEMORIA AED2                                                                   2
 
 1. Diseño ................................................................ 3
-2. Analisis teorico ...................................................... 3
-3. Implementación ........................................................ 3
-4. Validación ............................................................ 3
-5. Estudio experimental .................................................. 3
-6. Contraste del estudio teorico y experimental .......................... 3
-7. Conclusiones y valoraciones ........................................... 3
+2. Analisis teorico ...................................................... 4
+3. Implementación ........................................................ 
+4. Validación ............................................................ 
+5. Estudio experimental .................................................. 
+6. Contraste del estudio teorico y experimental .......................... 
+7. Conclusiones y valoraciones ........................................... 
 
 MEMORIA AED2                                                                   3
 
 1. Diseño
 
+El problema consiste en reconocer patrones en una cadena. El patrón consiste
+en cadenas compuestas por una combinación de dos subcadenas de 3 caracteres,
+formando 6 caracteres.
+
+En este caso, la tecnica de divide y vencerás se aplica dividiendo la cadena
+por la mitad. Si la división es menor de 6 caracteres, se descarta pues el
+patrón es de 6 caracteres. Si la división es de 6 caracteres, se comprueba el
+patrón de forma directa, pues la cadena no se puede dividir. Y si la división
+es de 7 o más caracteres, se divide en 2 por la mitad.
+
+Puede ser que la división parta una ocurrencia del patrón, y que debido a eso
+no se detecte, por tanto se ha de combinar la zona central al rededor de la
+división en busqueda de posibles occurencias de manera directa. Esta zona
+comprende 10 caracteres, 5 y 5, ya que la cadena de 6 puede tener un caracter
+en una división y 5 caracteres en la otra.
+
+El codigo se compone de 3 funciones, un check de comprobación directa de 6
+caracteres, la función de divide y vencerás, y el punto de entrada. A la
+función de divide y vencerás que es recursiva, se le pasa la cadena a comprobar
+las subcadenas que permutar para el patrón, y el rango de la cadena a comprobar
+y un conjunto de soluciones por referencia donde insertar estas. Las soluciones
+consisten en la posición de las ocurrencias de los patrones encontrados en la
+cadena.
+
+```
+funcion comprobar(cadena A, cadena sub[], entero i, entero d) {
+    suba = A.subcadena(i, d - i + 1)
+    devolver (suba está entre permutaciones de dos cadenas de sub)
+}
+
+funcion dyv(cadena A, cadena sub[], entero i, entero d, set<int> sol) {
+    longitud = d - i + 1
+    si longitud < 6:
+        devolver
+    si longitud == 6:
+        si comprobar(cadena A, cadena sub[], entero i, entero d):
+            insertar i a sol
+    sino:
+	// mitad izquierda
+        dyv(A, sub, i, i + (longitud/2 - 1), sol)
+	// mitad derecha
+        dyv(A, sub, i + longitud/2, d, sol)
+    // combinar resultados revisando la franja de unión
+	para entero h desde i+(longitud/2-5) hasta (i+(len/2+4)
+		si comprobar(A, sub, h, h+5)
+			insertar h a sol
+}
+
+main() {
+   cadena sub[3] = {"acb","aac","dca"}	
+   set<int> sol
+   cadena A
+   leer A
+   dyv(A, sub, 0, A.length()-1, sol)
+}
+```
+MEMORIA AED2                                                                   4
+
 2. Analsis teorico
+
+
 
 3. Implementación
 
