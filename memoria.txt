@@ -1,0 +1,70 @@
+MEMORIA AED2                                                                   1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  MEMORIA
+                     PROYECTO DE DIVIDE Y VENCERÁS - AED2
+                                 Problema 9
+                          JOSE RAMON HOYOS BARCELO
+
+            +-----------------------+------+-----------------------+
+            | Nombre                | Grp  | e-mail                |
+            +-----------------------+------+-----------------------+
+            | Angel Ruiz Fernandez  | G2.2 | a.ruizfernandez@um.es |
+            | Alberto Velasco Cotes | G2.2 | a.velascocotes@um.es  |
+            +-----------------------+------+-----------------------+
+
+
+MEMORIA AED2                                                                   2
+
+1. Diseño ................................................................ 3
+2. Analisis teorico ...................................................... 3
+3. Implementación ........................................................ 3
+4. Validación ............................................................ 3
+5. Estudio experimental .................................................. 3
+6. Contraste del estudio teorico y experimental .......................... 3
+7. Conclusiones y valoraciones ........................................... 3
+
+MEMORIA AED2                                                                   3
+
+1. Diseño
+
+2. Analsis teorico
+
+3. Implementación
+
+4. Validación
+
+5. Estudio experimental
+
+6. Contraste del estudio teorico y experimental
+
+7. Conclusiones y valoraciones
+
