@@ -46,8 +46,9 @@ MEMORIA AED2                                                                   1
 
 1. Diseño ................................................................ 3
 2. Analisis teorico ...................................................... 4
-3. Implementación ........................................................ 
-4. Validación ............................................................ 
+3. Implementación ........................................................ 5
+   3.1. Listado de código ................................................ 6
+4. Validación ............................................................ 7
 5. Estudio experimental .................................................. 
 6. Contraste del estudio teorico y experimental .......................... 
 7. Conclusiones y valoraciones ........................................... 
@@ -80,7 +81,6 @@ y un conjunto de soluciones por referencia donde insertar estas. Las soluciones
 consisten en la posición de las ocurrencias de los patrones encontrados en la
 cadena.
 
-```
 funcion comprobar(cadena A, cadena sub[], entero i, entero d) {
     suba = A.subcadena(i, d - i + 1)
     devolver (suba está entre permutaciones de dos cadenas de sub)
@@ -94,43 +94,174 @@ funcion dyv(cadena A, cadena sub[], entero i, entero d, set<int> sol) {
         si comprobar(cadena A, cadena sub[], entero i, entero d):
             insertar i a sol
     sino:
-	// mitad izquierda
+    // mitad izquierda
         dyv(A, sub, i, i + (longitud/2 - 1), sol)
-	// mitad derecha
+    // mitad derecha
         dyv(A, sub, i + longitud/2, d, sol)
     // combinar resultados revisando la franja de unión
-	para entero h desde i+(longitud/2-5) hasta (i+(len/2+4)
-		si comprobar(A, sub, h, h+5)
-			insertar h a sol
+    para entero h desde i+(longitud/2-5) hasta (i+(len/2+4)
+        si comprobar(A, sub, h, h+5)
+            insertar h a sol
 }
 
 main() {
-   cadena sub[3] = {"acb","aac","dca"}	
+   cadena sub[3] = {"acb","aac","dca"}    
    set<int> sol
    cadena A
    leer A
    dyv(A, sub, 0, A.length()-1, sol)
 }
-```
+
 MEMORIA AED2                                                                   4
 
 2. Analsis teorico
 
 
+El algoritmo es recurrente, y su tiempo de ejecución viene dado en terminos de
+comprobaciones directas por la ecuación de recurrencia
+
+                             t(n) = 2*t(n/2) + 5
+
+ya que las divisiones toman la mitad de tiempo que la cadena actual, más las
+5 comprobaciones resultantes del combinar, en el centro.
+
+En el mejor caso con n < 6, ninguna comprobación se ejecuta.
+
+                                  t(n) = 0
+
+En el mejor del resto de casos, se harán las mismas comprobaciones que la
+solución directa, es decir n - 5, el minimo posible. Este caso tiene una n que
+pertenece a n = 6 * 2^k. Su tiempo viene dado por
+
+                      t_m(n) = n/6 + 5*(2^log_2(n/6) - 1)
+
+Operando con las anteriores formulas se prueba (no mostrada) que es cierto
+
+                               t_m(n) = n - 5
+
+Por como está hecho el bucle que comprueba la zona combinada al rededor del
+centro, no se comprueban nunca posiciones redundantes ni con el caso base ni
+con otras zonas combinadas, por tanto el peor caso es el mismo que el mejor caso
+y en todo caso el tiempo es
+
+                         t(n) = t_M(n) = t_m(n) = n - 5
+
+En versiones anteriores del proyecto, los limites de combinar estaban distintos
+y se hacian comprobaciones redundantes provocando que t(n) fuera mayor que n - 5
+
+MEMORIA AED2                                                                   5
 
 3. Implementación
 
+La implementación se realiza en C++ usando std::string, y std::set para guardar
+las soluciones. Se evitan las globales optando por pasar parametros.
+
+Esta implementación no está especialmente optimizada. Se copian muchas cosas,
+se hacen computos redundantes que se pueden precalcular, se pasan muchas
+cosas en cada llamada que sería mas rapido obtener del espacio de nombres
+global, y se construyen objetos innecesariamente. Así que aparte se ha hecho
+una reimplementación en C (no incluida), mitigando todas estas ineficiencias,
+ya que las limitaciones del lenguaje te obligan a pensar de forma optima.
+
+MEMORIA AED2                                                                   6
+
+3.1. Listado de código
+
+#include <iostream>
+#include <string>
+#include <set>
+
+bool comprobar(const std::string& a, const std::string sub[3], int i, int d) {
+    // construir subcadena para comprobar
+    std::string suba = a.substr(i, d - i + 1);
+    // comprobar subcadena con permutaciones de las dos subcadenas del patron
+    return
+        (suba == sub[0] + sub[1]) ||
+        (suba == sub[0] + sub[2]) ||
+        (suba == sub[1] + sub[0]) ||
+        (suba == sub[1] + sub[2]) ||
+        (suba == sub[2] + sub[0]) ||
+        (suba == sub[2] + sub[1]);
+}
+
+void dyv(const std::string& A, const std::string sub[3], int i, int d,
+    std::set<int>& sol
+) {
+    int len = (d - i + 1); // longitud de subcadena
+    if (len < 6) {
+        // caso sub-base
+    } else if (len == 6) {
+        // caso base
+        if (comprobar(A, sub, i, d))
+           sol.insert(i);
+    } else {
+        // dividir
+        dyv(A, sub, i, i + ((len/2) - 1), sol); // mitad izq
+        dyv(A, sub, i + (len/2), d, sol); // mitad dcha
+        // combinar 
+        for (int h = std::max(i + ((len/2) - 5), 0); 
+                h + 5 <= std::min(i + ((len/2) + 4), d); h++)
+            if (comprobar(A, sub, h, h + 5))
+                sol.insert(h);
+    }
+}
+
+int main() {
+    // leer cadena
+    std::string A;
+    std::cin >> A;
+
+    // subcadenas a 2-permutar para patron
+    std::string sub[3] = {"acb", "aac", "dca"};
+    
+    // conjunto de soluciones
+    std::set<int> sol;
+
+    // iniciar divide y venceras
+    dyv(A, sub, 0, A.length() - 1, sol);
+
+    // imprimir soluciones
+    for (int s : sol) 
+        printf("%d, ", s + 1);
+    // imprimir numero de soluciones
+    printf("\nsol: %ld\n", sol.size());
+}
+MEMORIA AED2                                                                   7
+
 4. Validación
-Haciendo uso del generador de cadenas para comprobar las salidas usando el algoritmo dyv y el método de resolución directa, 
-hemos podido comprobar que todas las salidas coinciden. 
-//Caso proporcionado en el documento
-"abbcabcddacbdcaaac"
-//Caso sin coincidencias
-"babababababababababababababababababa"
-//Caso cadena larga
-"dbdcbdbccbddbadaacccacdaccddddacaaacdcabdaaaadbabdcccccaacddbaccacadaaaaaaabdbbabacdcbdcddbaddcdcccc"
+
+Como validación, se implementa el algoritmo de forma directa (no incluido), y se
+someten las dos implementaciones contra el mismo problema, y se comprueba que
+dan las mismas soluciones.
+
+La implementación de el test consiste en un script de bash que genera una
+cadena a probar, de longitud 1 a infinito, y la procesa llamando a las dos
+implementaciones, y entonces comparando las dos salidas.
+
+```
+#!/bin/bash
+
+i=1
+
+while :
+do
+    test=$(./generador $i)
+    printf "$i "
+    outdyv=$(echo $test | ./proyecto-cpp_exp -dyv)
+    outdir=$(echo $test | ./proyecto-cpp_exp -normal)
+
+    if [ "$outdyv" != "$outdir" ]; then
+        printf "bad\n"
+    else
+        printf "ok\n"
+    fi
+    ((i++))
+done
+```
 
 5. Estudio experimental
+
+
 
 6. Contraste del estudio teorico y experimental
 
