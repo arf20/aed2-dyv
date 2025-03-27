@@ -100,16 +100,22 @@ int main(int argc, char **argv) {
         std::string arg(argv[1]);
         if (arg == "-dyv")
             dyv(A, sub, 0, A.length() - 1, sol, checked);
-        else if (arg == "-normal") {
-            for (size_t h = 0; h + 5 <= A.length(); h++)
+        else if (arg == "-dir") {
+            for (size_t h = 0; h + 5 <= A.length() - 1; h++) {
+                checked.insert(h);
+                checks_cb++;
                 if (comprobar(A, sub, h, h + 5, checked))
                     sol.insert(h);
+            }
         } else if (arg == "-dyvdyn") {
             dyv_dyn(A, sub, 0, A.length() - 1, sol);
-        } else if (arg == "-dyn") {
-            for (size_t h = 0; h + 5 <= A.length(); h++)
+        } else if (arg == "-dirdyn") {
+            for (size_t h = 0; h + 5 <= A.length() - 1; h++) {
+                checked.insert(h);
+                checks_cb++;
                 if (comprobar_dyn(A, sub, h, h + 5))
                     sol.insert(h);
+            }
         } else
             return 1;
 

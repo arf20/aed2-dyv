@@ -2,6 +2,5 @@ generador
 proyecto-c
 proyecto-cpp
 proyecto-cpp_exp
-test*
-
+*.csv
 

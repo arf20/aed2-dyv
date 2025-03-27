@@ -39,14 +39,15 @@ int main(int argc, char **argv) {
     
     std::set<int> sol;
 
-
-    if (argc == 2 && std::string(argv[1]) == "-dyv")
+    if (argc == 2 && std::string(argv[1]) == "-dyv") {
         dyv(A, sub, 0, A.length() - 1, sol);
-    if (argc == 2 && std::string(argv[1]) == "-dir")
-        for (int i = 0; i < A.length() - 6; i++)
+    } else if (argc == 2 && std::string(argv[1]) == "-dir") {
+        for (int i = 0; i + 5 <= ((int)A.length() - 1); i++)
             if (comprobar(A, sub, i, i + 5))
                 sol.insert(i);
-    
+    } else {
+        dyv(A, sub, 0, A.length() - 1, sol);
+    }
 
     for (int s : sol) 
         printf("%d, ", s + 1);
