@@ -52,8 +52,8 @@ MEMORIA AED2                                                                   1
 5. Estudio experimental .................................................. 8
    5.1. Tiempo ........................................................... 8
    5.2. Memoria ......................................................... 10
-6. Contraste del estudio teorico y experimental ......................... 10
-7. Conclusiones y valoraciones .......................................... 10
+6. Contraste del estudio teorico y experimental ......................... 12
+7. Conclusiones y valoraciones .......................................... 12
 
 MEMORIA AED2                                                                   3
 
