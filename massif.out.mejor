@@ -1,0 +1,843 @@
+desc: --stacks=yes
+cmd: ./proyecto-cpp
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=30750872
+mem_heap_B=322561
+mem_heap_extra_B=39
+mem_stacks_B=768
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=68358797
+mem_heap_B=568321
+mem_heap_extra_B=39
+mem_stacks_B=760
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=91257418
+mem_heap_B=1059841
+mem_heap_extra_B=39
+mem_stacks_B=760
+heap_tree=empty
+#-----------
+snapshot=4
+#-----------
+time=121679465
+mem_heap_B=1059841
+mem_heap_extra_B=39
+mem_stacks_B=768
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=145479973
+mem_heap_B=3025922
+mem_heap_extra_B=62
+mem_stacks_B=928
+heap_tree=peak
+n3: 3025922 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 2949122 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 2949122 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 2949122 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=6
+#-----------
+time=172490068
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=208033106
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2704
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=248194490
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2560
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=267380802
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=299357957
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2728
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=334532839
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2752
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=372905440
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2720
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=395289493
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=424713006
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2624
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=466163557
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2760
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=493797284
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2680
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=526036637
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=558275980
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2568
+heap_tree=empty
+#-----------
+snapshot=19
+#-----------
+time=585909695
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2824
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=608937767
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2848
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=639074503
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=667509088
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2592
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=710160866
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2616
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=738595379
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2688
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=767029928
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2280
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=795464464
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2720
+heap_tree=detailed
+n3: 2042881 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1966081 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 1966081 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 1966081 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=27
+#-----------
+time=816790384
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2336
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=859442175
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2144
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=894985370
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2752
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=923419885
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2520
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=966071674
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2496
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=998398615
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2528
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=1042402843
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2688
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=1086407058
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2592
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=1108409172
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2000
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=1130411305
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2816
+heap_tree=detailed
+n3: 2042881 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1966081 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 1966081 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 1966081 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=37
+#-----------
+time=1174415525
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2656
+heap_tree=empty
+#-----------
+snapshot=38
+#-----------
+time=1196417659
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=1218419774
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2624
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=1251422940
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2760
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=1284426113
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2328
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=1306428225
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2720
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=1328430352
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=1372434568
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=1405437737
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2704
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=1449441965
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2464
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=1482445135
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2624
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=1504447257
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=1537450447
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2752
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=1556636766
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2240
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=1575823080
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2656
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=1595009393
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2376
+heap_tree=detailed
+n3: 2042881 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1966081 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 1966081 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 1966081 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=53
+#-----------
+time=1614195714
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2320
+heap_tree=empty
+#-----------
+snapshot=54
+#-----------
+time=1633382054
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=55
+#-----------
+time=1652568367
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2712
+heap_tree=empty
+#-----------
+snapshot=56
+#-----------
+time=1671754686
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2144
+heap_tree=empty
+#-----------
+snapshot=57
+#-----------
+time=1690941007
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2656
+heap_tree=empty
+#-----------
+snapshot=58
+#-----------
+time=1710127347
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=59
+#-----------
+time=1729313668
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2176
+heap_tree=empty
+#-----------
+snapshot=60
+#-----------
+time=1748499984
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2712
+heap_tree=empty
+#-----------
+snapshot=61
+#-----------
+time=1767686301
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2720
+heap_tree=empty
+#-----------
+snapshot=62
+#-----------
+time=1786872613
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=1944
+heap_tree=detailed
+n3: 2042881 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1966081 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 1966081 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 1966081 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=63
+#-----------
+time=1806058926
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2192
+heap_tree=empty
+#-----------
+snapshot=64
+#-----------
+time=1825245250
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2688
+heap_tree=empty
+#-----------
+snapshot=65
+#-----------
+time=1844431571
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2728
+heap_tree=empty
+#-----------
+snapshot=66
+#-----------
+time=1863617884
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2800
+heap_tree=empty
+#-----------
+snapshot=67
+#-----------
+time=1882804207
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=68
+#-----------
+time=1901990544
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=1824
+heap_tree=empty
+#-----------
+snapshot=69
+#-----------
+time=1921176856
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2760
+heap_tree=empty
+#-----------
+snapshot=70
+#-----------
+time=1940363170
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=71
+#-----------
+time=1959549482
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2712
+heap_tree=empty
+#-----------
+snapshot=72
+#-----------
+time=1978735814
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2784
+heap_tree=detailed
+n3: 2042881 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1966081 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 1966081 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 1966081 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=73
+#-----------
+time=1997922129
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2640
+heap_tree=empty
+#-----------
+snapshot=74
+#-----------
+time=2017108460
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2704
+heap_tree=empty
+#-----------
+snapshot=75
+#-----------
+time=2036294792
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=76
+#-----------
+time=2055481107
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2728
+heap_tree=empty
+#-----------
+snapshot=77
+#-----------
+time=2074667419
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2808
+heap_tree=empty
+#-----------
+snapshot=78
+#-----------
+time=2093853736
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2712
+heap_tree=empty
+#-----------
+snapshot=79
+#-----------
+time=2113040052
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2496
+heap_tree=empty
+#-----------
+snapshot=80
+#-----------
+time=2132226367
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2720
+heap_tree=empty
+#-----------
+snapshot=81
+#-----------
+time=2151412682
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2712
+heap_tree=empty
+#-----------
+snapshot=82
+#-----------
+time=2170598997
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2624
+heap_tree=detailed
+n3: 2042881 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1966081 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 1966081 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 1966081 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=83
+#-----------
+time=2189785316
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2608
+heap_tree=empty
+#-----------
+snapshot=84
+#-----------
+time=2208971642
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2808
+heap_tree=empty
+#-----------
+snapshot=85
+#-----------
+time=2228157963
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2352
+heap_tree=empty
+#-----------
+snapshot=86
+#-----------
+time=2247344275
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2560
+heap_tree=empty
+#-----------
+snapshot=87
+#-----------
+time=2266530601
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2592
+heap_tree=empty
+#-----------
+snapshot=88
+#-----------
+time=2285716917
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2440
+heap_tree=empty
+#-----------
+snapshot=89
+#-----------
+time=2304903234
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2720
+heap_tree=empty
+#-----------
+snapshot=90
+#-----------
+time=2324089547
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2800
+heap_tree=empty
+#-----------
+snapshot=91
+#-----------
+time=2343275861
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2736
+heap_tree=empty
+#-----------
+snapshot=92
+#-----------
+time=2362462174
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2824
+heap_tree=detailed
+n3: 2042881 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1966081 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 1966081 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 1966081 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=93
+#-----------
+time=2381648506
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2624
+heap_tree=empty
+#-----------
+snapshot=94
+#-----------
+time=2400834832
+mem_heap_B=2042881
+mem_heap_extra_B=39
+mem_stacks_B=2816
+heap_tree=empty

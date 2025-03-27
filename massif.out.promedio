@@ -1,0 +1,511 @@
+desc: --stacks=yes
+cmd: ./proyecto-cpp
+time_unit: i
+#-----------
+snapshot=0
+#-----------
+time=0
+mem_heap_B=0
+mem_heap_extra_B=0
+mem_stacks_B=0
+heap_tree=empty
+#-----------
+snapshot=1
+#-----------
+time=68358797
+mem_heap_B=568321
+mem_heap_extra_B=39
+mem_stacks_B=760
+heap_tree=empty
+#-----------
+snapshot=2
+#-----------
+time=121679465
+mem_heap_B=1059841
+mem_heap_extra_B=39
+mem_stacks_B=768
+heap_tree=empty
+#-----------
+snapshot=3
+#-----------
+time=145479973
+mem_heap_B=3025922
+mem_heap_extra_B=62
+mem_stacks_B=928
+heap_tree=peak
+n3: 3025922 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 2949122 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 2949122 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 2949122 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=4
+#-----------
+time=215141712
+mem_heap_B=2044481
+mem_heap_extra_B=679
+mem_stacks_B=2728
+heap_tree=empty
+#-----------
+snapshot=5
+#-----------
+time=267380777
+mem_heap_B=2045401
+mem_heap_extra_B=1047
+mem_stacks_B=2752
+heap_tree=empty
+#-----------
+snapshot=6
+#-----------
+time=334532811
+mem_heap_B=2047241
+mem_heap_extra_B=1783
+mem_stacks_B=2752
+heap_tree=empty
+#-----------
+snapshot=7
+#-----------
+time=385696330
+mem_heap_B=2048721
+mem_heap_extra_B=2375
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=8
+#-----------
+time=456952367
+mem_heap_B=2050561
+mem_heap_extra_B=3111
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=9
+#-----------
+time=498402948
+mem_heap_B=2051561
+mem_heap_extra_B=3511
+mem_stacks_B=2720
+heap_tree=empty
+#-----------
+snapshot=10
+#-----------
+time=544459173
+mem_heap_B=2053001
+mem_heap_extra_B=4087
+mem_stacks_B=2800
+heap_tree=empty
+#-----------
+snapshot=11
+#-----------
+time=590515375
+mem_heap_B=2053841
+mem_heap_extra_B=4423
+mem_stacks_B=2528
+heap_tree=empty
+#-----------
+snapshot=12
+#-----------
+time=644756887
+mem_heap_B=2055281
+mem_heap_extra_B=4999
+mem_stacks_B=2752
+heap_tree=empty
+#-----------
+snapshot=13
+#-----------
+time=689525023
+mem_heap_B=2056121
+mem_heap_extra_B=5335
+mem_stacks_B=2760
+heap_tree=empty
+#-----------
+snapshot=14
+#-----------
+time=753479504
+mem_heap_B=2058321
+mem_heap_extra_B=6215
+mem_stacks_B=2680
+heap_tree=empty
+#-----------
+snapshot=15
+#-----------
+time=798247643
+mem_heap_B=2059601
+mem_heap_extra_B=6727
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=16
+#-----------
+time=855806651
+mem_heap_B=2061561
+mem_heap_extra_B=7511
+mem_stacks_B=2824
+heap_tree=empty
+#-----------
+snapshot=17
+#-----------
+time=926156577
+mem_heap_B=2063161
+mem_heap_extra_B=8151
+mem_stacks_B=2520
+heap_tree=empty
+#-----------
+snapshot=18
+#-----------
+time=979372157
+mem_heap_B=2064601
+mem_heap_extra_B=8727
+mem_stacks_B=2640
+heap_tree=detailed
+n4: 2064601 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1966081 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 1966081 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 1966081 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n1: 21720 0x10C151: std::__new_allocator<std::_Rb_tree_node<int> >::allocate(unsigned long, void const*) (new_allocator.h:137)
+  n1: 21720 0x10C09F: std::allocator_traits<std::allocator<std::_Rb_tree_node<int> > >::allocate(std::allocator<std::_Rb_tree_node<int> >&, unsigned long) (alloc_traits.h:464)
+   n1: 21720 0x10BFA6: std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_get_node() (stl_tree.h:561)
+    n1: 21720 0x10BED5: std::_Rb_tree_node<int>* std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_create_node<int const&>(int const&) (stl_tree.h:611)
+     n1: 21720 0x10BDF8: std::_Rb_tree_node<int>* std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_Alloc_node::operator()<int const&>(int const&) const (stl_tree.h:529)
+      n1: 21720 0x10BAA8: std::_Rb_tree_iterator<int> std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_insert_<int const&, std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_Alloc_node>(std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, int const&, std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_Alloc_node&) (stl_tree.h:1830)
+       n1: 21720 0x10B646: std::pair<std::_Rb_tree_iterator<int>, bool> std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_insert_unique<int const&>(int const&) (stl_tree.h:2175)
+        n1: 21720 0x10B1E6: std::set<int, std::less<int>, std::allocator<int> >::insert(int const&) (stl_set.h:512)
+         n1: 21720 0x10A842: dyv(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, int, int, std::set<int, std::less<int>, std::allocator<int> >&) (main.cpp:30)
+          n0: 21720 in 2 places, all below massif's threshold (1.00%)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=19
+#-----------
+time=1043850891
+mem_heap_B=2066321
+mem_heap_extra_B=9415
+mem_stacks_B=2704
+heap_tree=empty
+#-----------
+snapshot=20
+#-----------
+time=1080695884
+mem_heap_B=2067641
+mem_heap_extra_B=9943
+mem_stacks_B=2656
+heap_tree=empty
+#-----------
+snapshot=21
+#-----------
+time=1145174656
+mem_heap_B=2068961
+mem_heap_extra_B=10471
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=22
+#-----------
+time=1191230914
+mem_heap_B=2070241
+mem_heap_extra_B=10983
+mem_stacks_B=2824
+heap_tree=empty
+#-----------
+snapshot=23
+#-----------
+time=1237287203
+mem_heap_B=2071401
+mem_heap_extra_B=11447
+mem_stacks_B=2624
+heap_tree=empty
+#-----------
+snapshot=24
+#-----------
+time=1283343472
+mem_heap_B=2073161
+mem_heap_extra_B=12151
+mem_stacks_B=1808
+heap_tree=empty
+#-----------
+snapshot=25
+#-----------
+time=1329399729
+mem_heap_B=2074201
+mem_heap_extra_B=12567
+mem_stacks_B=2624
+heap_tree=empty
+#-----------
+snapshot=26
+#-----------
+time=1357033510
+mem_heap_B=2075041
+mem_heap_extra_B=12903
+mem_stacks_B=2512
+heap_tree=empty
+#-----------
+snapshot=27
+#-----------
+time=1412301010
+mem_heap_B=2076801
+mem_heap_extra_B=13607
+mem_stacks_B=2536
+heap_tree=empty
+#-----------
+snapshot=28
+#-----------
+time=1449145986
+mem_heap_B=2077841
+mem_heap_extra_B=14023
+mem_stacks_B=2416
+heap_tree=empty
+#-----------
+snapshot=29
+#-----------
+time=1485990974
+mem_heap_B=2078521
+mem_heap_extra_B=14295
+mem_stacks_B=2280
+heap_tree=empty
+#-----------
+snapshot=30
+#-----------
+time=1541258449
+mem_heap_B=2080081
+mem_heap_extra_B=14919
+mem_stacks_B=2752
+heap_tree=empty
+#-----------
+snapshot=31
+#-----------
+time=1578103434
+mem_heap_B=2081001
+mem_heap_extra_B=15287
+mem_stacks_B=2304
+heap_tree=empty
+#-----------
+snapshot=32
+#-----------
+time=1633370907
+mem_heap_B=2082401
+mem_heap_extra_B=15847
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=33
+#-----------
+time=1670215896
+mem_heap_B=2083201
+mem_heap_extra_B=16167
+mem_stacks_B=2720
+heap_tree=empty
+#-----------
+snapshot=34
+#-----------
+time=1725483372
+mem_heap_B=2084441
+mem_heap_extra_B=16663
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=35
+#-----------
+time=1762328356
+mem_heap_B=2085561
+mem_heap_extra_B=17111
+mem_stacks_B=2528
+heap_tree=empty
+#-----------
+snapshot=36
+#-----------
+time=1799173329
+mem_heap_B=2086361
+mem_heap_extra_B=17431
+mem_stacks_B=2712
+heap_tree=empty
+#-----------
+snapshot=37
+#-----------
+time=1836018323
+mem_heap_B=2087201
+mem_heap_extra_B=17767
+mem_stacks_B=2784
+heap_tree=detailed
+n4: 2087201 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1966081 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 1966081 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 1966081 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n1: 44320 0x10C151: std::__new_allocator<std::_Rb_tree_node<int> >::allocate(unsigned long, void const*) (new_allocator.h:137)
+  n1: 44320 0x10C09F: std::allocator_traits<std::allocator<std::_Rb_tree_node<int> > >::allocate(std::allocator<std::_Rb_tree_node<int> >&, unsigned long) (alloc_traits.h:464)
+   n1: 44320 0x10BFA6: std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_get_node() (stl_tree.h:561)
+    n1: 44320 0x10BED5: std::_Rb_tree_node<int>* std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_create_node<int const&>(int const&) (stl_tree.h:611)
+     n1: 44320 0x10BDF8: std::_Rb_tree_node<int>* std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_Alloc_node::operator()<int const&>(int const&) const (stl_tree.h:529)
+      n1: 44320 0x10BAA8: std::_Rb_tree_iterator<int> std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_insert_<int const&, std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_Alloc_node>(std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, int const&, std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_Alloc_node&) (stl_tree.h:1830)
+       n1: 44320 0x10B646: std::pair<std::_Rb_tree_iterator<int>, bool> std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_insert_unique<int const&>(int const&) (stl_tree.h:2175)
+        n1: 44320 0x10B1E6: std::set<int, std::less<int>, std::allocator<int> >::insert(int const&) (stl_set.h:512)
+         n2: 44320 0x10A842: dyv(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, int, int, std::set<int, std::less<int>, std::allocator<int> >&) (main.cpp:30)
+          n1: 22240 0x10A7DA: dyv(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, int, int, std::set<int, std::less<int>, std::allocator<int> >&) (main.cpp:26)
+           n0: 22240 in 2 places, all below massif's threshold (1.00%)
+          n1: 22080 0x10A7A8: dyv(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, int, int, std::set<int, std::less<int>, std::allocator<int> >&) (main.cpp:25)
+           n0: 22080 in 2 places, all below massif's threshold (1.00%)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=38
+#-----------
+time=1891285811
+mem_heap_B=2088201
+mem_heap_extra_B=18167
+mem_stacks_B=2608
+heap_tree=empty
+#-----------
+snapshot=39
+#-----------
+time=1928130784
+mem_heap_B=2089761
+mem_heap_extra_B=18791
+mem_stacks_B=2704
+heap_tree=empty
+#-----------
+snapshot=40
+#-----------
+time=1964975761
+mem_heap_B=2090681
+mem_heap_extra_B=19159
+mem_stacks_B=2784
+heap_tree=empty
+#-----------
+snapshot=41
+#-----------
+time=2001820760
+mem_heap_B=2091641
+mem_heap_extra_B=19543
+mem_stacks_B=2184
+heap_tree=empty
+#-----------
+snapshot=42
+#-----------
+time=2057088245
+mem_heap_B=2092641
+mem_heap_extra_B=19943
+mem_stacks_B=2688
+heap_tree=empty
+#-----------
+snapshot=43
+#-----------
+time=2093933237
+mem_heap_B=2093281
+mem_heap_extra_B=20199
+mem_stacks_B=2280
+heap_tree=empty
+#-----------
+snapshot=44
+#-----------
+time=2130778228
+mem_heap_B=2094441
+mem_heap_extra_B=20663
+mem_stacks_B=2752
+heap_tree=empty
+#-----------
+snapshot=45
+#-----------
+time=2186045704
+mem_heap_B=2096281
+mem_heap_extra_B=21399
+mem_stacks_B=2816
+heap_tree=empty
+#-----------
+snapshot=46
+#-----------
+time=2222890690
+mem_heap_B=2097481
+mem_heap_extra_B=21879
+mem_stacks_B=2280
+heap_tree=empty
+#-----------
+snapshot=47
+#-----------
+time=2259735667
+mem_heap_B=2098481
+mem_heap_extra_B=22279
+mem_stacks_B=2632
+heap_tree=empty
+#-----------
+snapshot=48
+#-----------
+time=2315003129
+mem_heap_B=2100081
+mem_heap_extra_B=22919
+mem_stacks_B=2520
+heap_tree=empty
+#-----------
+snapshot=49
+#-----------
+time=2333425632
+mem_heap_B=2100481
+mem_heap_extra_B=23079
+mem_stacks_B=2592
+heap_tree=empty
+#-----------
+snapshot=50
+#-----------
+time=2351848139
+mem_heap_B=2100761
+mem_heap_extra_B=23191
+mem_stacks_B=2656
+heap_tree=empty
+#-----------
+snapshot=51
+#-----------
+time=2370270645
+mem_heap_B=2101041
+mem_heap_extra_B=23303
+mem_stacks_B=2712
+heap_tree=empty
+#-----------
+snapshot=52
+#-----------
+time=2388693160
+mem_heap_B=2101401
+mem_heap_extra_B=23447
+mem_stacks_B=2304
+heap_tree=detailed
+n4: 2101401 (heap allocation functions) malloc/new/new[], --alloc-fns, etc.
+ n1: 1966081 0x49C0CDD: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 1966081 0x4942AD4: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+   n0: 1966081 0x10A8D2: main (main.cpp:36)
+ n1: 72704 0x49267B9: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+  n1: 72704 0x40049CD: call_init (dl-init.c:74)
+   n1: 72704 0x40049CD: call_init (dl-init.c:26)
+    n1: 72704 0x4004AB3: _dl_init (dl-init.c:121)
+     n0: 72704 0x401AA7F: ??? (in /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2)
+ n1: 58520 0x10C151: std::__new_allocator<std::_Rb_tree_node<int> >::allocate(unsigned long, void const*) (new_allocator.h:137)
+  n1: 58520 0x10C09F: std::allocator_traits<std::allocator<std::_Rb_tree_node<int> > >::allocate(std::allocator<std::_Rb_tree_node<int> >&, unsigned long) (alloc_traits.h:464)
+   n1: 58520 0x10BFA6: std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_get_node() (stl_tree.h:561)
+    n1: 58520 0x10BED5: std::_Rb_tree_node<int>* std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_create_node<int const&>(int const&) (stl_tree.h:611)
+     n1: 58520 0x10BDF8: std::_Rb_tree_node<int>* std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_Alloc_node::operator()<int const&>(int const&) const (stl_tree.h:529)
+      n1: 58520 0x10BAA8: std::_Rb_tree_iterator<int> std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_insert_<int const&, std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_Alloc_node>(std::_Rb_tree_node_base*, std::_Rb_tree_node_base*, int const&, std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_Alloc_node&) (stl_tree.h:1830)
+       n1: 58520 0x10B646: std::pair<std::_Rb_tree_iterator<int>, bool> std::_Rb_tree<int, int, std::_Identity<int>, std::less<int>, std::allocator<int> >::_M_insert_unique<int const&>(int const&) (stl_tree.h:2175)
+        n1: 58520 0x10B1E6: std::set<int, std::less<int>, std::allocator<int> >::insert(int const&) (stl_set.h:512)
+         n2: 58520 0x10A842: dyv(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, int, int, std::set<int, std::less<int>, std::allocator<int> >&) (main.cpp:30)
+          n1: 29960 0x10A7A8: dyv(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, int, int, std::set<int, std::less<int>, std::allocator<int> >&) (main.cpp:25)
+           n0: 29960 in 2 places, all below massif's threshold (1.00%)
+          n1: 28560 0x10A7DA: dyv(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const*, int, int, std::set<int, std::less<int>, std::allocator<int> >&) (main.cpp:26)
+           n0: 28560 in 2 places, all below massif's threshold (1.00%)
+ n0: 4096 in 1 place, below massif's threshold (1.00%)
+#-----------
+snapshot=53
+#-----------
+time=2407115663
+mem_heap_B=2102001
+mem_heap_extra_B=23687
+mem_stacks_B=2472
+heap_tree=empty

@@ -50,6 +50,8 @@ MEMORIA AED2                                                                   1
    3.1. Listado de código simplificado ................................... 6
 4. Validación ............................................................ 7
 5. Estudio experimental .................................................. 8
+   5.1. Tiempo ........................................................... 8
+   5.2. Memoria ......................................................... 10
 6. Contraste del estudio teorico y experimental ......................... 10
 7. Conclusiones y valoraciones .......................................... 10
 
@@ -105,7 +107,7 @@ funcion dyv(cadena A, cadena sub[], entero i, entero d, set<int> sol) {
 }
 
 main() {
-   cadena sub[3] = {"acb","aac","dca"}    
+   cadena sub[3] = {"acb", "aac", "dca"}    
    set<int> sol
    cadena A
    leer A
@@ -158,10 +160,15 @@ que se insertan en un conjunto. que vamos a asumir que es O(log(size())), que
 por k soluciones en la cadena sería O(klogk) si size() empieza en 0. Sumandolo
 queda como
 
-                                 O(n + klogk)
+                    t(n) = t_dyv(n) + t_setinsert(n + klogk)
+
+En promedio, el numero de soluciones k es proporcional a n, ya que la aparición
+de soluciones es aleatoria, con lo cual, tras la suma, el orden sigue siendo de
+
+                                     O(n)
 
 Teniendo esto en cuenta, el peor caso es cuando haya el mayor numero de
-soluciones, y el mejor, cuando no haya soluciones, k = 0.
+soluciones posible, n / 3, y el mejor, cuando no haya soluciones, k = 0.
 
 MEMORIA AED2                                                                   5
 
@@ -177,10 +184,9 @@ global, y se construyen objetos innecesariamente. Así que aparte se ha hecho
 una reimplementación en C (no incluida), mitigando todas estas ineficiencias,
 ya que las limitaciones del lenguaje te obligan a pensar de forma optima.
 
-MEMORIA AED2                                                                   6
-
 3.1. Listado de código simplificado
 
+```main.cpp (simplificado)
 #include <iostream>
 #include <string>
 #include <set>
@@ -220,6 +226,8 @@ void dyv(const std::string& A, const std::string sub[3], int i, int d,
     }
 }
 
+MEMORIA AED2                                                                   6
+
 int main() {
     // leer cadena
     std::string A;
@@ -240,6 +248,8 @@ int main() {
     // imprimir numero de soluciones
     printf("\nsol: %ld\n", sol.size());
 }
+```
+
 MEMORIA AED2                                                                   7
 
 4. Validación
@@ -277,6 +287,8 @@ done
 
 5. Estudio experimental
 
+5.1. Tiempo
+
 Se modifica el generador para poder generar casos peor, promedio y mejor
 que en este caso es variando la k, el numero de patrones que hay en la cadena
 generada. En el peor de los casos, el mayor numero de patrones, cada 3
@@ -311,7 +323,6 @@ do
 
     ((i++))
 done
-
 ```
 
 Estudiando los resultados, se puede observar facilmente que el problema no es
@@ -335,6 +346,7 @@ bajo (es lineal).
 
 A continuación se presentan los datos resultados usando GNU Plot (plot.sh)
 MEMORIA AED2                                                                   9
+
      1.4 +------------------------------------------------------------------+   
          |      +       +      +       +      +       +      +       +      |   
      1.2 |-+ DyV    #                                                #    +-|   
@@ -353,7 +365,7 @@ A continuación se presentan los datos resultados usando GNU Plot (plot.sh)
          |      +       +      +       +      +       +      +       +      |   
        0 +------------------------------------------------------------------+   
        500000 1e+06  1.5e+06 2e+06  2.5e+06 3e+06  3.5e+06 4e+06  4.5e+06 5e+06 
-        Fig 1. Mejor - de 500k a 5M
+    Fig 1. Mejor - de 500k a 5M
 
        2 +------------------------------------------------------------------+   
          |      +       +      +       +      +       +      +       +      |   
@@ -373,7 +385,7 @@ A continuación se presentan los datos resultados usando GNU Plot (plot.sh)
          |      +       +      +       +      +       +      +       +      |   
        0 +------------------------------------------------------------------+   
        500000 1e+06  1.5e+06 2e+06  2.5e+06 3e+06  3.5e+06 4e+06  4.5e+06 5e+06 
-        Fig 2. Peor - de 500k a 5M
+    Fig 2. Peor - de 500k a 5M
 
      1.4 +------------------------------------------------------------------+   
          |      +       +      +       +      +       +      +       +      |   
@@ -393,18 +405,109 @@ A continuación se presentan los datos resultados usando GNU Plot (plot.sh)
          |      +       +      +       +      +       +      +       +      |   
        0 +------------------------------------------------------------------+   
        500000 1e+06  1.5e+06 2e+06  2.5e+06 3e+06  3.5e+06 4e+06  4.5e+06 5e+06 
-        Fig 3. Promedio - de 500k a 5M
-
+    Fig 3. Promedio - de 500k a 5M
 MEMORIA AED2                                                                  10
+
+5.2. Memoria
+
+Para investigar la memoria, habiendo generado los test apropiados, se ha usado
+la herramienta massif de valgrind, llamandola una sola vez, ya que el uso de
+memoria es mucho mas determinista, y interpretandose la salida con ms_print,
+que produce un grafico del perfil de uso a lo largo del tiempo, y las muestras
+indicando el pico de uso.
+
+```
+$ valgrind --tool=massif --stacks=yes ./proyecto-cpp < test
+$ ms_print massif.out.*
+```
+
+    +-----------+-----------+-----------+
+    | Caso      | Heap (MB) | Stack (B) |
+    +-----------+-----------+-----------+
+    | Mejor     | 3.027     | 928       |
+    | Peor      | 14.556    | 2976      |
+    | Promedio  | 3.026     | 928       |
+    +-----------+-----------+-----------+
+    Tabla 2. Pico de uso de memoria exacto en MB, con una n de 1M
+
+Efectivamente, el mejor y el caso promedio al tener un numero de soluciones
+similar (0 y cercano a 0), consumen una cantidad de memoria similar, al
+guardar las soluciones en un contenedor std::set, y en el grafico tienen una
+pendiente bastante plana. Sin embargo el peor caso tiene un uso de memoria mucho
+mayor, y empinado, al hacer n / 3 inserciones.
+
+MEMORIA AED2                                                                  11
+
+    MB
+2.887^    #
+     |    #
+     |    #
+     |    #
+     |    #
+     |    #::::::::::::::::::@:::::::::@@::::::::::::@:::::@:::::@:::::@::::@:
+     |    #:::: :::::::::::::@:::::: ::@ ::::: ::::::@:::::@:::::@:::::@::::@:
+     |    #:::: :::::::::::::@:::::: ::@ ::::: ::::::@:::::@:::::@:::::@::::@:
+     |    #:::: :::::::::::::@:::::: ::@ ::::: ::::::@:::::@:::::@:::::@::::@:
+     |  ::#:::: :::::::::::::@:::::: ::@ ::::: ::::::@:::::@:::::@:::::@::::@:
+     |  ::#:::: :::::::::::::@:::::: ::@ ::::: ::::::@:::::@:::::@:::::@::::@:
+     |  ::#:::: :::::::::::::@:::::: ::@ ::::: ::::::@:::::@:::::@:::::@::::@:
+     |::::#:::: :::::::::::::@:::::: ::@ ::::: ::::::@:::::@:::::@:::::@::::@:
+     |: ::#:::: :::::::::::::@:::::: ::@ ::::: ::::::@:::::@:::::@:::::@::::@:
+   0 +----------------------------------------------------------------------->Gi
+     0                                                                   2.236
+    Fig 5. Perfil de uso de memoria - Mejor - n=1M
+
+    MB
+13.81^                                                                    :::
+     |                                                                :::#: :
+     |                                                         ::@: @:: :#: ::
+     |                                                    @@@@@: @: @:: :#: ::
+     |                                                 @@@@ @@ : @: @:: :#: ::
+     |                                            :::@:@@@@ @@ : @: @:: :#: ::
+     |                                     ::::@ ::: @:@@@@ @@ : @: @:: :#: ::
+     |                              @::: :@: : @ ::: @:@@@@ @@ : @: @:: :#: ::
+     |                       @::@:@ @: : :@: : @ ::: @:@@@@ @@ : @: @:: :#: ::
+     |                  @::::@: @:@ @: : :@: : @ ::: @:@@@@ @@ : @: @:: :#: ::
+     |            :::@ @@: : @: @:@ @: : :@: : @ ::: @:@@@@ @@ : @: @:: :#: ::
+     |       ::::::::@ @@: : @: @:@ @: : :@: : @ ::: @:@@@@ @@ : @: @:: :#: ::
+     |    :: :: : :::@ @@: : @: @:@ @: : :@: : @ ::: @:@@@@ @@ : @: @:: :#: ::
+     | ::@:: :: : :::@ @@: : @: @:@ @: : :@: : @ ::: @:@@@@ @@ : @: @:: :#: ::
+   0 +----------------------------------------------------------------------->Gi
+     0                                                                   3.094
+    Fig 5. Perfil de uso de memoria - Peor - n=1M
+
+    MB
+2.887^    ##
+     |    #
+     |    #
+     |    #
+     |    #                                                            ::::::@
+     |    # :::::::::::::::::::::::@@:::::::::::::::::::::::@@:::::::::::: ::@
+     |    # ::  :: :: :: :: :: : : @ :: :: :::: ::: :::: :::@ :::: ::: ::: ::@
+     |    # ::  :: :: :: :: :: : : @ :: :: :::: ::: :::: :::@ :::: ::: ::: ::@
+     |    # ::  :: :: :: :: :: : : @ :: :: :::: ::: :::: :::@ :::: ::: ::: ::@
+     |   :# ::  :: :: :: :: :: : : @ :: :: :::: ::: :::: :::@ :::: ::: ::: ::@
+     |   :# ::  :: :: :: :: :: : : @ :: :: :::: ::: :::: :::@ :::: ::: ::: ::@
+     |   :# ::  :: :: :: :: :: : : @ :: :: :::: ::: :::: :::@ :::: ::: ::: ::@
+     |  ::# ::  :: :: :: :: :: : : @ :: :: :::: ::: :::: :::@ :::: ::: ::: ::@
+     |  ::# ::  :: :: :: :: :: : : @ :: :: :::: ::: :::: :::@ :::: ::: ::: ::@
+   0 +----------------------------------------------------------------------->Gi
+     0                                                                   2.242
+    Fig 6. Perfil de uso de memoria - Promedio - n=1M
+
+MEMORIA AED2                                                                  12
 
 6. Contraste del estudio teorico y experimental
 
-El estudio experimental soporta la teoría de que el algoritmo es efectivamente
-de orden O(n), ya que la regresión linear sale con bajo error estandar.
+El estudio experimental de tiempo soporta la teoría de que el algoritmo es
+efectivamente de orden O(n), ya que la regresión linear sale con bajo error
+estandar.
 
 Además tambien se observa que cuantas mas soluciones se encuentran, mas tiempo
 toma el algoritmo, confirmado que las inserciones suman al tiempo de ejecución
-significativamente.
+significativamente. Además, el estudio de memoria propone que el uso de memoria
+es directamente proporcional de n, ya que el numero de soluciones en promedio es
+proporcional a n, al ser aleatorio.
 
 7. Conclusiones y valoraciones
 

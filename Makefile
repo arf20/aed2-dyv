@@ -18,10 +18,13 @@ $(TARGET)-c: main.c
 $(GENERATOR): generador.cpp
 	$(CXX) $(CXX_FLAGS) -o $@ $+ $(LD_FLAGS)
 
-.PHONY: clean measure plot
+.PHONY: clean doc measure plot
 
 clean:
 	rm $(TARGET)-cpp  $(TARGET)-cpp_exp $(TARGET)-c $(GENERATOR) *.csv
+
+doc:
+	iconv -f utf8 -t latin1 memoria.txt | enscript -l -M A4 -f Courier@11 -p - | ps2pdf - - > memoria.pdf
 
 measurelin1:
 	./measure.sh 500000 20 lin1 best > lin1best.csv
