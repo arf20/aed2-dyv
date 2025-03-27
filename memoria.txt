@@ -292,7 +292,7 @@ done
 Se modifica el generador para poder generar casos peor, promedio y mejor
 que en este caso es variando la k, el numero de patrones que hay en la cadena
 generada. En el peor de los casos, el mayor numero de patrones, cada 3
-caracteres. El promedio es el normal, aleatorio, y el peor es cuando no hay
+caracteres. El promedio es el normal, aleatorio, y el mejor es cuando no hay
 instancias del patrón, generando una string conformada por 'x' de la longitud
 especificada.
 
