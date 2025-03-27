@@ -47,11 +47,11 @@ MEMORIA AED2                                                                   1
 1. Diseño ................................................................ 3
 2. Analisis teorico ...................................................... 4
 3. Implementación ........................................................ 5
-   3.1. Listado de código ................................................ 6
+   3.1. Listado de código simplificado ................................... 6
 4. Validación ............................................................ 7
-5. Estudio experimental .................................................. 
-6. Contraste del estudio teorico y experimental .......................... 
-7. Conclusiones y valoraciones ........................................... 
+5. Estudio experimental .................................................. 8
+6. Contraste del estudio teorico y experimental ......................... 10
+7. Conclusiones y valoraciones .......................................... 10
 
 MEMORIA AED2                                                                   3
 
@@ -179,7 +179,7 @@ ya que las limitaciones del lenguaje te obligan a pensar de forma optima.
 
 MEMORIA AED2                                                                   6
 
-3.1. Listado de código
+3.1. Listado de código simplificado
 
 #include <iostream>
 #include <string>
@@ -252,7 +252,7 @@ La implementación de el test consiste en un script de bash que genera una
 cadena a probar, de longitud 1 a infinito, y la procesa llamando a las dos
 implementaciones, y entonces comparando las dos salidas.
 
-```validate.sh
+```validate.sh (simplificado)
 #!/bin/bash
 
 i=1
@@ -291,15 +291,13 @@ vez. El script genera una salida en CSV con n, el tiempo que se tardó para DyV 
 directo, y su ratio. El estudio se hace 3 veces, para el peor, mejor y caso
 promedios.
 
-```measure.sh
-TIMEFORMAT='%6U';
-
+```measure.sh (simplificado)
 i=1
 while [ $i -le $points ]
 do
     ./generador $n $case > /tmp/test
-    timedyv=$(bash -c "TIMEFORMAT='%6U'; time cat /tmp/test | ./proyecto-cpp -dyv" 2>&1 1>/dev/null)
-    timedir=$(bash -c "TIMEFORMAT='%6U'; time cat /tmp/test | ./proyecto-cpp -dir" 2>&1 1>/dev/null)
+    timedyv=$(bash -c "time cat /tmp/test | ./proyecto-cpp -dyv")
+    timedir=$(bash -c "time cat /tmp/test | ./proyecto-cpp -dir")
 
     ratio=$(echo "scale=6; $timedyv/$timedir" | bc -l)
 
@@ -309,8 +307,6 @@ do
         ((n++))
     elif [ "$mode" == "linn" ]; then
         ((n+=step))
-    elif [ "$mode" == "exp" ]; then
-        ((n*=2))
     fi
 
     ((i++))
@@ -321,18 +317,23 @@ done
 Estudiando los resultados, se puede observar facilmente que el problema no es
 adecuado para resolverse con divide y vencerás, pues este metodo tarda mas
 tiempo que el metodo directo. Además, se observa que el crecimiento es lineal,
-y que el peor tarda un poco mas que el mejor, que es muy similar al promedio.
+y que el peor tarda un poco mas que el mejor, que es muy similar al promedio,
+al haber pocas soluciones.
 
-    +---------+-----------+-------------+
-    |         | Ordenada  | Pendiente   |
-    +---------+-----------+-------------+
-    |  DyV    | 0.0022    | 2.708e-7    |
-    |  direct | 0.0007    | 2.338e-8    |
-    +---------+-----------+-------------+
+La regresión lineal (del promedio) soporta esta conclusión, ya que el error es
+bajo (es lineal).
+
+          +-----------------------------+-----------------------------+
+          |          Promedio           |            Peor             |
+          +--------+----------+---------+--------+----------+---------+
+          | Ordena | Pendient | Std Err | Ordena | Pendient | Std Err |
+    +-----+--------+----------+---------+--------+----------+---------+
+    | DyV | 0.0022 | 2.708e-7 | 1.31e-8 | -0.017 | 3.923e-7 | 1.78e-8 |
+    | dir | 0.0007 | 2.338e-8 | 2.7e-9  | 0.0097 | 3.45e-7  | 6.37e-9 |
+    +-----+--------+----------+---------+--------+----------+---------+
     Tabla 1. Regresión lineal del promedio
 
 A continuación se presentan los datos resultados usando GNU Plot (plot.sh)
-
 MEMORIA AED2                                                                   9
      1.4 +------------------------------------------------------------------+   
          |      +       +      +       +      +       +      +       +      |   
@@ -394,7 +395,28 @@ A continuación se presentan los datos resultados usando GNU Plot (plot.sh)
        500000 1e+06  1.5e+06 2e+06  2.5e+06 3e+06  3.5e+06 4e+06  4.5e+06 5e+06 
         Fig 3. Promedio - de 500k a 5M
 
+MEMORIA AED2                                                                  10
+
 6. Contraste del estudio teorico y experimental
 
+El estudio experimental soporta la teoría de que el algoritmo es efectivamente
+de orden O(n), ya que la regresión linear sale con bajo error estandar.
+
+Además tambien se observa que cuantas mas soluciones se encuentran, mas tiempo
+toma el algoritmo, confirmado que las inserciones suman al tiempo de ejecución
+significativamente.
+
 7. Conclusiones y valoraciones
+
+El metodo de divide y vencerás toma demonstrablemente mas tiempo que el directo,
+por tanto no es un problema adecuado para aplicar divide y vencerás.
+
+Podemos especular que es mas lento por el tremendo arbol de llamadas que se
+forma, el overhead de el pase de parametros, la copia de valores, ... etc.
+
+Muchas de estas ineficiencias se pueden eliminar, reimplementando el proyecto
+en C, obligandose a usar practicas eficientes y optimas. Tras hacerlo, de
+manera preeliminar se encuentra que esta versión (main.c) es más de un orden
+de magnitud mas rapida, y que la diferencia entre con o sin divide y vencerás
+se reduce.
 
