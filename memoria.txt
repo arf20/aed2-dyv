@@ -146,8 +146,22 @@ y en todo caso el tiempo es
 
                          t(n) = t_M(n) = t_m(n) = n - 5
 
+Por tanto el orden del algoritmo es lineal
+
+                                    O(n)
+
 En versiones anteriores del proyecto, los limites de combinar estaban distintos
 y se hacian comprobaciones redundantes provocando que t(n) fuera mayor que n - 5
+
+Hasta ahora no se ha tenido en cuenta el coste de guardar las soluciones,
+que se insertan en un conjunto. que vamos a asumir que es O(log(size())), que
+por k soluciones en la cadena sería O(klogk) si size() empieza en 0. Sumandolo
+queda como
+
+                                 O(n + klogk)
+
+Teniendo esto en cuenta, el peor caso es cuando haya el mayor numero de
+soluciones, y el mejor, cuando no haya soluciones, k = 0.
 
 MEMORIA AED2                                                                   5
 
@@ -238,7 +252,7 @@ La implementación de el test consiste en un script de bash que genera una
 cadena a probar, de longitud 1 a infinito, y la procesa llamando a las dos
 implementaciones, y entonces comparando las dos salidas.
 
-```
+```validate.sh
 #!/bin/bash
 
 i=1
@@ -247,8 +261,8 @@ while :
 do
     test=$(./generador $i)
     printf "$i "
-    outdyv=$(echo $test | ./proyecto-cpp_exp -dyv)
-    outdir=$(echo $test | ./proyecto-cpp_exp -normal)
+    outdyv=$(echo $test | ./proyecto-cpp -dyv)
+    outdir=$(echo $test | ./proyecto-cpp -dir)
 
     if [ "$outdyv" != "$outdir" ]; then
         printf "bad\n"
@@ -259,9 +273,126 @@ do
 done
 ```
 
+MEMORIA AED2                                                                   8
+
 5. Estudio experimental
 
+Se modifica el generador para poder generar casos peor, promedio y mejor
+que en este caso es variando la k, el numero de patrones que hay en la cadena
+generada. En el peor de los casos, el mayor numero de patrones, cada 3
+caracteres. El promedio es el normal, aleatorio, y el peor es cuando no hay
+instancias del patrón, generando una string conformada por 'x' de la longitud
+especificada.
 
+Para estudiar empíricamente el tiempo del programa, se implementa otro script
+'measure.sh' que va llamando al ejecutable en modo divide y venceras y en modo
+directo, y mide cuanto tardan en ejecutarse, incrementando n linearmente cada
+vez. El script genera una salida en CSV con n, el tiempo que se tardó para DyV y
+directo, y su ratio. El estudio se hace 3 veces, para el peor, mejor y caso
+promedios.
+
+```measure.sh
+TIMEFORMAT='%6U';
+
+i=1
+while [ $i -le $points ]
+do
+    ./generador $n $case > /tmp/test
+    timedyv=$(bash -c "TIMEFORMAT='%6U'; time cat /tmp/test | ./proyecto-cpp -dyv" 2>&1 1>/dev/null)
+    timedir=$(bash -c "TIMEFORMAT='%6U'; time cat /tmp/test | ./proyecto-cpp -dir" 2>&1 1>/dev/null)
+
+    ratio=$(echo "scale=6; $timedyv/$timedir" | bc -l)
+
+    printf "$n,$timedyv,$timedir,$ratio\n"
+
+    if [ "$mode" == "lin1" ]; then
+        ((n++))
+    elif [ "$mode" == "linn" ]; then
+        ((n+=step))
+    elif [ "$mode" == "exp" ]; then
+        ((n*=2))
+    fi
+
+    ((i++))
+done
+
+```
+
+Estudiando los resultados, se puede observar facilmente que el problema no es
+adecuado para resolverse con divide y vencerás, pues este metodo tarda mas
+tiempo que el metodo directo. Además, se observa que el crecimiento es lineal,
+y que el peor tarda un poco mas que el mejor, que es muy similar al promedio.
+
+    +---------+-----------+-------------+
+    |         | Ordenada  | Pendiente   |
+    +---------+-----------+-------------+
+    |  DyV    | 0.0022    | 2.708e-7    |
+    |  direct | 0.0007    | 2.338e-8    |
+    +---------+-----------+-------------+
+    Tabla 1. Regresión lineal del promedio
+
+A continuación se presentan los datos resultados usando GNU Plot (plot.sh)
+
+MEMORIA AED2                                                                   9
+     1.4 +------------------------------------------------------------------+   
+         |      +       +      +       +      +       +      +       +      |   
+     1.2 |-+ DyV    #                                                #    +-|   
+         |direct    *                                        #              |   
+         |                                                           *      |   
+       1 |-+                                          #      *            +-|   
+         |                                                                  |   
+     0.8 |-+                                          *                   +-|   
+         |                                    *                             |   
+     0.6 |-+                           *                                  +-|   
+         |                     #                                            |   
+     0.4 |-+                   *                                          +-|   
+         |              *                                                   |   
+         |      *                                                           |   
+     0.2 |-+                                                              +-|   
+         |      +       +      +       +      +       +      +       +      |   
+       0 +------------------------------------------------------------------+   
+       500000 1e+06  1.5e+06 2e+06  2.5e+06 3e+06  3.5e+06 4e+06  4.5e+06 5e+06 
+        Fig 1. Mejor - de 500k a 5M
+
+       2 +------------------------------------------------------------------+   
+         |      +       +      +       +      +       +      +       +      |   
+     1.8 |-+ DyV    #                                                #    +-|   
+     1.6 |direct    *                                        #       *    +-|   
+         |                                            #                     |   
+     1.4 |-+                                                 *            +-|   
+     1.2 |-+                                          *                   +-|   
+         |                                    *                             |   
+       1 |-+                                  #                           +-|   
+         |                             *                                    |   
+     0.8 |-+                   #                                          +-|   
+     0.6 |-+                   *                                          +-|   
+         |              *                                                   |   
+     0.4 |-+    *                                                         +-|   
+     0.2 |-+                                                              +-|   
+         |      +       +      +       +      +       +      +       +      |   
+       0 +------------------------------------------------------------------+   
+       500000 1e+06  1.5e+06 2e+06  2.5e+06 3e+06  3.5e+06 4e+06  4.5e+06 5e+06 
+        Fig 2. Peor - de 500k a 5M
+
+     1.4 +------------------------------------------------------------------+   
+         |      +       +      +       +      +       +      +       +      |   
+     1.2 |-+ DyV    #                                                #    +-|   
+         |direct    *                                        #              |   
+         |                                                           *      |   
+       1 |-+                                          #      *            +-|   
+         |                                            *                     |   
+     0.8 |-+                                                              +-|   
+         |                                    *                             |   
+     0.6 |-+                           *                                  +-|   
+         |                     #                                            |   
+     0.4 |-+                   *                                          +-|   
+         |              *                                                   |   
+         |      *                                                           |   
+     0.2 |-+                                                              +-|   
+         |      +       +      +       +      +       +      +       +      |   
+       0 +------------------------------------------------------------------+   
+       500000 1e+06  1.5e+06 2e+06  2.5e+06 3e+06  3.5e+06 4e+06  4.5e+06 5e+06 
+        Fig 3. Promedio - de 500k a 5M
 
 6. Contraste del estudio teorico y experimental
 
