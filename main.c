@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
     if (argc == 2) {
         if (strcmp(argv[1], "-dyv") == 0)
             dyv(0, len - 1);
-        else if (strcmp(argv[1], "-normal") == 0) {
+        else if (strcmp(argv[1], "-dir") == 0) {
             for (size_t h = 0; h + 5 <= len; h++)
                 if (comprobar(h))
                     sols[h] = 1;
